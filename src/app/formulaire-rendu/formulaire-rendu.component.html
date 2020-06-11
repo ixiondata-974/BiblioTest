@@ -1,0 +1,24 @@
+<div>
+  Trier par titre, nom date : <input type="text" [(ngModel)]="title">
+</div>
+<br>
+<table style="width:100%" class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col">Titre</th>
+    <th scope="col">Emprunteur</th>
+    <th scope="col">Commentaire</th>
+    <th scope="col">Date d'emprunt</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let infos of info | infoPipe:title">
+        <td>{{infos.Titre}}</td>
+        <td>{{infos.Emprunteur}}</td>
+        <td>{{infos.Comment}}</td>
+        <td>{{infos.DateEmprunt}}</td>
+        <td><button class="btn btn-primary" (click)="setDispo(infos.Titre)">Rendre</button></td>
+      </tr>
+  </tbody>
+</table>

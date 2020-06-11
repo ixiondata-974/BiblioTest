@@ -1,0 +1,32 @@
+
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{detailEmprunt.title}}</h4>
+  </div>
+    <form #Form="ngForm" (ngSubmit)="onSubmit(Form)">
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <img id="left" class="figure-img img-fluid" src="https://pa1.narvii.com/7041/9bac3aad4903e60c9fce1d563e09d56f11ceedfar1-510-510_hq.gif">
+              <label>Ajouter un commentaire (facultatif)</label>
+              <input [value]="" name="comm" type="textarea" class="form-control" ngModel>
+            </div>
+            <div class="col">
+
+              <p> Auteur : {{detailEmprunt.auteur}}</p>
+              <p>Genre : {{detailEmprunt.genre}}</p>
+              <p> ISBN : {{detailEmprunt.ISBN}}</p>
+              <label style="font-weight: bold">{{disponibilite()}}</label>
+              <div class="modal-header"></div>
+              <div class="form-group">
+                <label>Nom de l'emprunteur</label>
+                <input [disabled]="Disable" [value]="" type="text" name="nom" class="form-control" ngModel required>
+                <label>Prenom de l'emprunteur</label>
+                <input [disabled]="Disable" [value]="" type="text" name="prenom" class="form-control" ngModel required>
+
+              </div>
+              <button [disabled]="!Form.valid || Disable" type="submit" class="btn btn-secondary" >Emprunter</button>
+
+            </div>
+        </div>
+      </div>
+    </form>

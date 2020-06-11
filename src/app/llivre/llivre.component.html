@@ -1,0 +1,28 @@
+
+  <div>
+    Trier par titre, auteur, genre, ISBN : <input type="text" [(ngModel)]="title">
+
+  </div>
+<br><br>
+  <table style="width:100%" class="table-hover">
+    <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Auteur</th>
+      <th>Genre</th>
+      <th>ISBN</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let infos of info | infoPipe:title" id="pointer" [style.color]="indisponible(infos.disponible)" (click)="openForm(template, infos)">
+      <td>{{infos.titre}}</td>
+      <td>{{infos.auteur}}</td>
+      <td>{{infos.genre}}</td>
+      <td>{{infos.ISBN}}</td>
+    </tr>
+    </tbody>
+  </table>
+<ng-template #template>
+  <app-form-emprun (refresh)="emit()" [detailEmprunt]="this.sendObject"></app-form-emprun>
+</ng-template>
+
