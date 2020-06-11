@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {LlivreComponent} from './llivre/llivre.component';
+import {Component, OnInit} from '@angular/core';
+import {LivreService} from './Model/post/livre.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LivreService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  // tslint:disable-next-line:indent
+  // tslint:disable-next-line:indent variable-name
 	constructor(){	}
+
+  ngOnInit(): void {
+  }
 
 }
